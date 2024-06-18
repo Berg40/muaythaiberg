@@ -78,6 +78,11 @@ def main(page: ft.Page):
             foto3.update()
             await asyncio.sleep(5)
 
+    def update_exibir(image_src):
+        exibir.image_src = image_src
+        exibir.update()
+
+
     cont = ft.Container(
         height=300,
         width=400,
@@ -202,6 +207,17 @@ def main(page: ft.Page):
 
     page.update()
 
+    exibir = ft.Container(
+
+        height=550,
+        width=1300,
+
+        shadow=ft.BoxShadow(blur_radius=2000, color=ft.colors.BLACK),
+        image_src='images/15.jpg',
+        image_fit=ft.ImageFit.COVER
+
+    )
+
     def open_whatsapp(e):
         whatsapp_url = 'https://api.whatsapp.com/send?phone=5512997071992'
         page.launch_url(whatsapp_url)
@@ -215,6 +231,8 @@ def main(page: ft.Page):
             page.go('/Golpes')
         elif e.control.selected_index == 2:
             page.go('/Origem')
+        elif e.control.selected_index == 3:
+            page.go('/Galeria')
 
 
     def route_change(route):
@@ -343,6 +361,10 @@ Saúde Mental: Como qualquer atividade física, o Muay Thai libera endorfinas, h
                         ),
                         ft.NavigationDrawerDestination(
                             label='Origem',
+                            icon=ft.icons.STORE
+                        ),
+                        ft.NavigationDrawerDestination(
+                            label='Galeria',
                             icon=ft.icons.STORE
                         ),
                     ],
@@ -772,7 +794,11 @@ Seu alvo é a testa ou o supercílio do lutador adversário, com o objetivo de c
                             ft.NavigationDrawerDestination(
                                 label='Origem',
                                 icon=ft.icons.STORE
-                            )
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Galeria',
+                                icon=ft.icons.STORE
+                            ),
                         ],
                         on_change=change_route,
                     )
@@ -860,6 +886,185 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                                 label='Origem',
                                 icon=ft.icons.STORE
                             ),
+                            ft.NavigationDrawerDestination(
+                                label='Galeria',
+                                icon=ft.icons.STORE
+                            ),
+                        ],
+                        on_change=change_route,
+                    )
+                )
+            )
+        if page.route == '/Galeria':
+            page.views.append(
+                ft.View(
+                    spacing=0,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    floating_action_button=ft.FloatingActionButton(
+                        content=ft.Image(
+                            src='images/whatssfundo.png',
+                            fit=ft.ImageFit.CONTAIN
+                        ),
+                        on_click=open_whatsapp,
+                        shape=ft.CircleBorder('circle'),
+                        scale=0.9,
+                    ),
+                    route='/Galeria',
+                    padding=0,
+                    appbar=ft.AppBar(
+                        bgcolor=ft.colors.TRANSPARENT,
+                    ),
+                    controls=[
+                        exibir,
+
+                        ft.Row(
+                            scroll=ft.ScrollMode.AUTO,
+                            controls=[
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+
+                                    image_src='images/15.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/15.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/1.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/1.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/2.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/2.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/3.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/3.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/4.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/4.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/5.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/5.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/6.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/6.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/7.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/7.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/8.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/8.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/9.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/9.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/10.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/10.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/11.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/11.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/12.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/12.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/13.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/13.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/17.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/17.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/16.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/16.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/14.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/14.jpg')
+                                ),
+
+                            ]
+                        )
+
+                    ],
+                    scroll=ft.ScrollMode.AUTO,
+                    bgcolor=ft.colors.BLACK,
+                    drawer=ft.NavigationDrawer(
+                        controls=[
+                            ft.NavigationDrawerDestination(
+                                label='Home',
+                                icon=ft.icons.HOME,
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Golpes',
+                                icon=ft.icons.STORE
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Origem',
+                                icon=ft.icons.STORE
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Galeria',
+                                icon=ft.icons.STORE
+                            ),
                         ],
                         on_change=change_route,
                     )
@@ -868,7 +1073,7 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
 
 
         page.update()
-        page.add(cont, texto, foto1, foto2, jab, direto, cruzado, upper, frontal, chute, joelhada, cotovelada)
+        page.add(cont, texto, foto1, foto2, jab, direto, cruzado, upper, frontal, chute, joelhada, cotovelada, exibir)
         page.run_task(animate)
         page.run_task(anima)
         page.run_task(anima1)
