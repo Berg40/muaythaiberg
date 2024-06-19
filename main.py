@@ -13,42 +13,9 @@ def main(page: ft.Page):
         while True:
             cont.scale = ft.Scale(scale=1.5)
             cont.update()
-            jab.scale = ft.Scale(scale=1)
-            jab.update()
-            direto.scale = ft.Scale(scale=1)
-            direto.update()
-            cruzado.scale = ft.Scale(scale=1)
-            cruzado.update()
-            upper.scale = ft.Scale(scale=1)
-            upper.update()
-            frontal.scale = ft.Scale(scale=1)
-            frontal.update()
-            chute.scale = ft.Scale(scale=1)
-            chute.update()
-            joelhada.scale = ft.Scale(scale=1)
-            joelhada.update()
-            cotovelada.scale = ft.Scale(scale=1)
-            cotovelada.update()
             await asyncio.sleep(4)
-
             cont.scale = ft.Scale(scale=0.6)
             cont.update()
-            jab.scale = ft.Scale(scale=0.4)
-            jab.update()
-            direto.scale = ft.Scale(scale=0.5)
-            direto.update()
-            cruzado.scale = ft.Scale(scale=0.5)
-            cruzado.update()
-            upper.scale = ft.Scale(scale=0.5)
-            upper.update()
-            frontal.scale = ft.Scale(scale=0.5)
-            frontal.update()
-            chute.scale = ft.Scale(scale=0.5)
-            chute.update()
-            joelhada.scale = ft.Scale(scale=0.5)
-            joelhada.update()
-            cotovelada.scale = ft.Scale(scale=0.5)
-            cotovelada.update()
             await asyncio.sleep(6)
 
     async def anima(e=None):
@@ -81,6 +48,10 @@ def main(page: ft.Page):
     def update_exibir(image_src):
         exibir.image_src = image_src
         exibir.update()
+
+    def update_exibir1(image_src):
+        exibir1.image_src = image_src
+        exibir1.update()
 
 
     cont = ft.Container(
@@ -134,9 +105,9 @@ def main(page: ft.Page):
         height=200,
         width=1300,
         image_src='images/BackgroundEraser_20240615_145746624.png',
-        image_fit=ft.ImageFit.CONTAIN,
-        scale=ft.Scale(scale=1),
-        animate_scale=ft.Animation(duration=5000, curve=ft.AnimationCurve.DECELERATE),
+        image_fit=ft.ImageFit.COVER,
+        #scale=ft.Scale(scale=1),
+        #animate_scale=ft.Animation(duration=5000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     direto = ft.Container(
@@ -144,18 +115,18 @@ def main(page: ft.Page):
         width=1300,
         offset=ft.Offset(y=0, x=0),
         image_src='images/BackgroundEraser_20240615_145722056.png',
-        image_fit=ft.ImageFit.CONTAIN,
-        scale=ft.Scale(scale=1),
-        animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        image_fit=ft.ImageFit.COVER,
+        #scale=ft.Scale(scale=1),
+        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     cruzado = ft.Container(
         height=200,
         width=1300,
         image_src='images/BackgroundEraser_20240615_145656905.png',
-        image_fit=ft.ImageFit.CONTAIN,
-        scale=ft.Scale(scale=1),
-        animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        image_fit=ft.ImageFit.COVER,
+        #scale=ft.Scale(scale=1),
+        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     upper = ft.Container(
@@ -163,9 +134,9 @@ def main(page: ft.Page):
         width=1300,
         offset=ft.Offset(y=0, x=-0.1),
         image_src='images/BackgroundEraser_20240615_145630019.png',
-        image_fit=ft.ImageFit.CONTAIN,
-        scale=ft.Scale(scale=1),
-        animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        image_fit=ft.ImageFit.COVER,
+        #scale=ft.Scale(scale=1),
+        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     frontal = ft.Container(
@@ -173,49 +144,54 @@ def main(page: ft.Page):
         width=1300,
         offset=ft.Offset(y=0, x=-0.1),
         image_src='images/BackgroundEraser_20240615_145608929.png',
-        image_fit=ft.ImageFit.CONTAIN,
-        scale=ft.Scale(scale=1),
-        animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        image_fit=ft.ImageFit.COVER,
+        #scale=ft.Scale(scale=1),
+        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     chute = ft.Container(
         height=200,
         width=1300,
         image_src='images/BackgroundEraser_20240615_145543810.png',
-        image_fit=ft.ImageFit.CONTAIN,
-        scale=ft.Scale(scale=1),
-        animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        image_fit=ft.ImageFit.COVER,
+        #scale=ft.Scale(scale=1),
+        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     joelhada = ft.Container(
         height=200,
         width=1300,
         image_src='images/BackgroundEraser_20240615_145517958.png',
-        image_fit=ft.ImageFit.CONTAIN,
-        scale=ft.Scale(scale=1),
-        animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        image_fit=ft.ImageFit.COVER,
+        #scale=ft.Scale(scale=1),
+        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     cotovelada = ft.Container(
         height=200,
         width=1300,
         image_src='images/BackgroundEraser_20240615_145454587.png',
-        image_fit=ft.ImageFit.CONTAIN,
-        scale=ft.Scale(scale=1),
-        animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        image_fit=ft.ImageFit.COVER,
+        #scale=ft.Scale(scale=1),
+        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     page.update()
 
     exibir = ft.Container(
+        height=550,
+        width=1300,
+        shadow=ft.BoxShadow(blur_radius=2000, color=ft.colors.BLACK),
+        image_src='images/20.jpg',
+        image_fit=ft.ImageFit.COVER
+    )
+    exibir1 = ft.Container(
 
         height=550,
         width=1300,
-
         shadow=ft.BoxShadow(blur_radius=2000, color=ft.colors.BLACK),
         image_src='images/15.jpg',
         image_fit=ft.ImageFit.COVER
-
     )
 
     def open_whatsapp(e):
@@ -232,7 +208,7 @@ def main(page: ft.Page):
         elif e.control.selected_index == 2:
             page.go('/Origem')
         elif e.control.selected_index == 3:
-            page.go('/Galeria')
+            page.go('/Graduados')
 
 
     def route_change(route):
@@ -364,7 +340,7 @@ Saúde Mental: Como qualquer atividade física, o Muay Thai libera endorfinas, h
                             icon=ft.icons.STORE
                         ),
                         ft.NavigationDrawerDestination(
-                            label='Galeria',
+                            label='Graduados',
                             icon=ft.icons.STORE
                         ),
                     ],
@@ -796,7 +772,7 @@ Seu alvo é a testa ou o supercílio do lutador adversário, com o objetivo de c
                                 icon=ft.icons.STORE
                             ),
                             ft.NavigationDrawerDestination(
-                                label='Galeria',
+                                label='Graduados',
                                 icon=ft.icons.STORE
                             ),
                         ],
@@ -895,7 +871,7 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                     )
                 )
             )
-        if page.route == '/Galeria':
+        if page.route == '/Graduados':
             page.views.append(
                 ft.View(
                     spacing=0,
@@ -909,137 +885,266 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                         shape=ft.CircleBorder('circle'),
                         scale=0.9,
                     ),
-                    route='/Galeria',
+                    route='/Graduados',
                     padding=0,
                     appbar=ft.AppBar(
                         bgcolor=ft.colors.TRANSPARENT,
                     ),
                     controls=[
                         exibir,
-
+                        ft.Container(
+                            content=ft.Text(
+                                value='GRADUAÇÃO 24/06/2023',
+                                weight=ft.FontWeight.BOLD,
+                                color='amber'
+                            )
+                        ),
                         ft.Row(
                             scroll=ft.ScrollMode.AUTO,
+                            spacing=5,
                             controls=[
                                 ft.Container(
                                     height=100,
                                     width=50,
+                                    image_src='images/20.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/20.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/21.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/21.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/22.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/22.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/23.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/23.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/24.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/24.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/25.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/25.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/26.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/26.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/27.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/27.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/28.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/28.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/29.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/29.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/30.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/30 .jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/31.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/31.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/32.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/32.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/33.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/33.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/34.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/34.jpg')
+                                ),
+                                ft.Container(
+                                    height=100,
+                                    width=50,
+                                    image_src='images/35.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                    on_click=lambda e: update_exibir('images/35.jpg')
+                                ),
 
+                            ]
+                        ),
+                        ft.Divider(color=ft.colors.GREY),
+                        exibir1,
+                        ft.Container(
+                            content=ft.Text(
+                                value='GRADUAÇÃO 24/06/2023',
+                                weight=ft.FontWeight.BOLD,
+                                color='amber'
+
+                            )
+                        ),
+                        ft.Row(
+                            scroll=ft.ScrollMode.AUTO,
+                            spacing=5,
+                            controls=[
+                                ft.Container(
+                                    height=100,
+                                    width=50,
                                     image_src='images/15.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/15.jpg')
+                                    on_click=lambda e: update_exibir1('images/15.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/1.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/1.jpg')
+                                    on_click=lambda e: update_exibir1('images/1.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/2.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/2.jpg')
+                                    on_click=lambda e: update_exibir1('images/2.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/3.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/3.jpg')
+                                    on_click=lambda e: update_exibir1('images/3.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/4.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/4.jpg')
+                                    on_click=lambda e: update_exibir1('images/4.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/5.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/5.jpg')
+                                    on_click=lambda e: update_exibir1('images/5.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/6.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/6.jpg')
+                                    on_click=lambda e: update_exibir1('images/6.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/7.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/7.jpg')
+                                    on_click=lambda e: update_exibir1('images/7.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/8.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/8.jpg')
+                                    on_click=lambda e: update_exibir1('images/8.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/9.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/9.jpg')
+                                    on_click=lambda e: update_exibir1('images/9.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/10.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/10.jpg')
+                                    on_click=lambda e: update_exibir1('images/10 .jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/11.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/11.jpg')
+                                    on_click=lambda e: update_exibir1('images/11.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/12.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/12.jpg')
+                                    on_click=lambda e: update_exibir1('images/12.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/13.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/13.jpg')
+                                    on_click=lambda e: update_exibir1('images/13.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/17.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/17.jpg')
+                                    on_click=lambda e: update_exibir1('images/17.jpg')
                                 ),
                                 ft.Container(
                                     height=100,
                                     width=50,
                                     image_src='images/16.jpg',
                                     image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/16.jpg')
+                                    on_click=lambda e: update_exibir1('images/16.jpg')
                                 ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/14.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/14.jpg')
-                                ),
+
 
                             ]
                         )
@@ -1062,7 +1167,7 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                                 icon=ft.icons.STORE
                             ),
                             ft.NavigationDrawerDestination(
-                                label='Galeria',
+                                label='Graduados',
                                 icon=ft.icons.STORE
                             ),
                         ],
@@ -1073,7 +1178,8 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
 
 
         page.update()
-        page.add(cont, texto, foto1, foto2, jab, direto, cruzado, upper, frontal, chute, joelhada, cotovelada, exibir)
+        page.add(cont, texto, foto1, foto2, jab, direto, cruzado,
+                 upper, frontal, chute, joelhada, cotovelada, exibir, exibir1)
         page.run_task(animate)
         page.run_task(anima)
         page.run_task(anima1)
