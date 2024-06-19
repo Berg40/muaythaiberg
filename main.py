@@ -1198,4 +1198,5 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
 
 
 if __name__ == '__main__':
-    ft.app(target=main, assets_dir='assets')
+    port = int(os.environ.get("PORT", 5000))
+    ft.app(target=main, assets_dir='assets', port=port, view=ft.WEB_BROWSER)
