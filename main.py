@@ -1,6 +1,7 @@
 import flet as ft
 import asyncio
 import math
+import os
 
 def main(page: ft.Page):
     page.window_always_on_top = True
@@ -1198,5 +1199,5 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    ft.app(target=main, assets_dir='assets', port=port, view=ft.WEB_BROWSER)
+    port = int(os.environ.get("PORT", 5000)) #para colocar no heroku
+    ft.app(target=main, assets_dir='assets', port=port, view=ft.WEB_BROWSER) #para colocar no heroku
