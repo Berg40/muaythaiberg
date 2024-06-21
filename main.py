@@ -1,4 +1,6 @@
 import flet as ft
+from graduados1 import graduados1_view
+from graduados2 import graduados2_view
 import asyncio
 import math
 import os
@@ -8,23 +10,33 @@ def main(page: ft.Page):
     page.bgcolor = ft.colors.BLACK
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.theme_mode = ft.ThemeMode.LIGHT  # Inicialmente tema claro
     page.update()
+
+    page.fonts = {
+        'font': 'fonts/GraffitiDripes-Regular.otf',
+        'font2': 'fonts/BrontidevpDemoStyle2-ZV8E3.otf',
+    }
+
+    def toggle_theme(e):
+        page.theme_mode = ft.ThemeMode.DARK if page.theme_mode == ft.ThemeMode.LIGHT else ft.ThemeMode.LIGHT
+        page.update()
 
     async def animate(e=None):
         while True:
             cont.scale = ft.Scale(scale=1.5)
             cont.update()
-            await asyncio.sleep(4)
+            await asyncio.sleep(1)
             cont.scale = ft.Scale(scale=0.6)
             cont.update()
-            await asyncio.sleep(6)
+            await asyncio.sleep(1)
 
-    async def anima(e=None):
+    async def anima(e=None):  #Animate desativado
         while True:
-            foto1.offset = ft.Offset(x=1, y=0)
+            foto1.offset = ft.Offset(x=-1, y=0)
             foto1.update()
-            await asyncio.sleep(10)
-            foto1.offset = ft.Offset(x=0, y=0)
+            await asyncio.sleep(4)  #Tempo escondido
+            foto1.offset = ft.Offset(x=1.25, y=0)
             foto1.update()
             await asyncio.sleep(10)
 
@@ -32,27 +44,19 @@ def main(page: ft.Page):
         while True:
             foto2.offset = ft.Offset(x=-1, y=0)
             foto2.update()
-            await asyncio.sleep(20)
-            foto2.offset = ft.Offset(x=0, y=0)
+            await asyncio.sleep(4)
+            foto2.offset = ft.Offset(x=0.05, y=0)
             foto2.update()
             await asyncio.sleep(10)
 
     async def anima2(e=None):
         while True:
-            foto3.offset = ft.Offset(x=1, y=0)
+            foto3.offset = ft.Offset(x=-1, y=0)
             foto3.update()
-            await asyncio.sleep(40)
-            foto3.offset = ft.Offset(x=0, y=0)
+            await asyncio.sleep(4)
+            foto3.offset = ft.Offset(x=1.1, y=0)
             foto3.update()
-            await asyncio.sleep(5)
-
-    def update_exibir(image_src):
-        exibir.image_src = image_src
-        exibir.update()
-
-    def update_exibir1(image_src):
-        exibir1.image_src = image_src
-        exibir1.update()
+            await asyncio.sleep(10)
 
 
     cont = ft.Container(
@@ -76,30 +80,45 @@ def main(page: ft.Page):
     )
 
     foto1 = ft.Container(
-        height=400,
-        width=1300,
-        image_src='images/berg_andrade2.jpg',
-        image_fit=ft.ImageFit.COVER,
+        height=100,
+        width=200,
+        content=ft.Text(
+            color=ft.colors.ORANGE_700,
+            font_family='font2',
+            italic=True,
+            value='Força',
+            size=40
+        ),
         offset=ft.Offset(y=0, x=0),
-        animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE_IN),
+        animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE),
     )
-
     foto2 = ft.Container(
-        height=400,
-        width=1300,
-        image_src='images/berg_andrade2-13062024-0001.jpeg',
-        image_fit=ft.ImageFit.COVER,
-        offset=ft.Offset(y=0, x=0),
-        animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE_IN),
-    )
+        height=100,
+        width=200,
+        content=ft.Text(
+            color=ft.colors.ORANGE_700,
+            font_family='font2',
+            italic=True,
+            value='Superação',
+            size=25
 
-    foto3 = ft.Container(
-        height=400,
-        width=1300,
-        image_src='images/joelhovermelho.jpg',
-        image_fit=ft.ImageFit.COVER,
+        ),
         offset=ft.Offset(y=0, x=0),
-        animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE_IN),
+        animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE),
+    )
+    foto3 = ft.Container(
+        height=100,
+        width=200,
+        content=ft.Text(
+            color=ft.colors.ORANGE_700,
+            font_family='font2',
+            italic=True,
+            value='Técnica',
+            size=40
+
+        ),
+        offset=ft.Offset(y=0, x=0),
+        animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE),
     )
 
     jab = ft.Container(
@@ -179,21 +198,7 @@ def main(page: ft.Page):
 
     page.update()
 
-    exibir = ft.Container(
-        height=550,
-        width=1300,
-        shadow=ft.BoxShadow(blur_radius=2000, color=ft.colors.BLACK),
-        image_src='images/20.jpg',
-        image_fit=ft.ImageFit.COVER
-    )
-    exibir1 = ft.Container(
 
-        height=550,
-        width=1300,
-        shadow=ft.BoxShadow(blur_radius=2000, color=ft.colors.BLACK),
-        image_src='images/15.jpg',
-        image_fit=ft.ImageFit.COVER
-    )
 
     def open_whatsapp(e):
         whatsapp_url = 'https://api.whatsapp.com/send?phone=5512997071992'
@@ -209,7 +214,9 @@ def main(page: ft.Page):
         elif e.control.selected_index == 2:
             page.go('/Origem')
         elif e.control.selected_index == 3:
-            page.go('/Graduados')
+            page.go('/Graduados2')
+        elif e.control.selected_index == 4:
+            page.go('/graduados1')
 
 
     def route_change(route):
@@ -231,6 +238,12 @@ def main(page: ft.Page):
                 padding=0,
                 appbar=ft.AppBar(
                     bgcolor=ft.colors.TRANSPARENT,
+                    actions=[
+                        ft.IconButton(
+                            icon=ft.icons.BRIGHTNESS_6,
+                            on_click=toggle_theme
+                        )
+                    ]
                 ),
                 controls=[
                     cont,
@@ -310,16 +323,23 @@ Saúde Mental: Como qualquer atividade física, o Muay Thai libera endorfinas, h
                     ft.Stack(
                         controls=[
                             ft.Container(
-                                height=400,
+                                height=600,
                                 width=1300,
-                                image_src='images/1681751014181.jpg',
+                                image_src='images/berg_andrade2.jpg',
                                 image_fit=ft.ImageFit.COVER,
-                                offset=ft.Offset(y=0, x=0),
-                                animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE_IN),
+                                # offset=ft.Offset(y=0, x=0),
+                                # animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE_IN),
+                                content=ft.Column(
+                                    spacing=140,
+                                    controls=[
+                                        foto1,
+                                        foto2,
+                                        foto3,
+
+                                    ]
+                                )
                             ),
-                            foto1,
-                            foto2,
-                            foto3,
+
 
                         ]
                     ),
@@ -327,23 +347,61 @@ Saúde Mental: Como qualquer atividade física, o Muay Thai libera endorfinas, h
                 scroll=ft.ScrollMode.AUTO,
                 bgcolor=ft.colors.BLACK,
                 drawer=ft.NavigationDrawer(
+                    indicator_color=ft.colors.with_opacity(0.5, ft.colors.CYAN_ACCENT_200),
+                    bgcolor=ft.colors.with_opacity(0.5, ft.colors.INDIGO_900),
+                    tile_padding=ft.padding.symmetric(horizontal=0),
                     controls=[
                         ft.NavigationDrawerDestination(
                             label='Home',
-                            icon=ft.icons.HOME,
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                            )
                         ),
                         ft.NavigationDrawerDestination(
                             label='Golpes',
-                            icon=ft.icons.STORE
+                            icon_content=ft.Container(
+                                margin=0,
+                                padding=0,
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                            )
+
                         ),
                         ft.NavigationDrawerDestination(
                             label='Origem',
-                            icon=ft.icons.STORE
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                            )
                         ),
                         ft.NavigationDrawerDestination(
-                            label='Graduados',
-                            icon=ft.icons.STORE
+                            label='Graduados 09/12/2023',
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                            )
+
                         ),
+                        ft.NavigationDrawerDestination(
+                            label='Graduados 23/06/2023',
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                            )
+                        ),
+
+
                     ],
                     on_change=change_route,
                 ),
@@ -367,415 +425,462 @@ Saúde Mental: Como qualquer atividade física, o Muay Thai libera endorfinas, h
                     padding=0,
                     appbar=ft.AppBar(
                         bgcolor=ft.colors.TRANSPARENT,
+                        actions=[
+                            ft.IconButton(
+                                icon=ft.icons.BRIGHTNESS_6,
+                                on_click=toggle_theme
+                            )
+                        ]
                     ),
                     controls=[
-                        ft.Tabs(
-                            label_color=ft.colors.AMBER,
-                            unselected_label_color=ft.colors.CYAN_ACCENT_700,
-                            tabs=[
-                                ft.Tab(
-                                    text='Golpes',
-                                    content=ft.Column(
-                                        controls=[
-                                            ft.Container(
-                                                padding=ft.padding.only(left=20, right=20, top=30, bottom=5),
-                                                content=ft.Text(
-                                                    size=16,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.CENTER,
-                                                    value='''O Muay Thai é conhecido por sua diversidade de técnicas e pela eficiência de seus golpes. Este tópico foi cuidadosamente desenvolvido para oferecer a você uma compreensão profunda e clara de cada movimento, desde os socos poderosos até as joelhadas e cotoveladas precisas.'''
-                                                )
-                                            ),
-                                            ft.Container(
-                                                height=500,
-                                                width=1300,
-
-                                                image_src='images/IMG-20220402-WA0035.jpg',
-                                                image_fit=ft.ImageFit.CONTAIN,
-                                            ),
-                                            ft.Container(
-                                                padding=20,
-                                                content=ft.Text(
-                                                    size=16,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''O que você encontrará neste tópico:
-
-Socos : Aprenda os diferentes tipos de socos, desde o jab até o cruzado, com instruções passo a passo e dicas para aprimorar sua técnica e potência.
-
-Chutes : Explore a variedade de chutes do Muay Thai, incluindo o chute circular, chute frontal e muito mais.
-
-Joelhadas : Descubra como aplicar joelhadas devastadoras, tanto em combates de curta distância quanto em clinch, aprimorando sua capacidade de ataque e defesa.
-
-Cotoveladas : As cotoveladas são algumas das técnicas mais letais do Muay Thai. Aqui, você aprenderá a usar essas armas com precisão e eficácia.
-
-Cada golpe é explicado com detalhes. Com este aplicativo, você terá acesso a um guia abrangente que facilitará o aprendizado e o aprimoramento das suas habilidades no Muay Thai.'''
-                                                )
-                                            )
-                                        ]
-
-
+                        ft.Column(
+                            controls=[
+                                ft.Container(
+                                    padding=ft.padding.only(left=20, right=20, top=30, bottom=5),
+                                    content=ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='''O Muay Thai é conhecido por sua diversidade de técnicas e pela eficiência de seus golpes. Este tópico foi cuidadosamente desenvolvido para oferecer a você uma compreensão profunda e clara de cada movimento, desde os socos poderosos até as joelhadas e cotoveladas precisas.'''
                                     )
                                 ),
-                                ft.Tab(
-                                    text='Jab',
-                                    content=ft.Column(
-                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                        controls=[
-                                            jab,
-                                            ft.Text(
-                                                size=20,
-                                                color=ft.colors.AMBER,
-                                                weight=ft.FontWeight.BOLD,
-                                                text_align=ft.TextAlign.CENTER,
-                                                value='Jab do Muay Thai',
-                                            ),
-                                            ft.Container(
-                                                padding=20,
-                                                content=ft.Text(
-                                                    size=16,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''                                              
-O soco mais básico do Muay Thai é o jab. Ele é desferido com a mão da frente, é rápido, tem como alvo do rosto do adversário.
-Embora o principal objetivo do jab seja o controle da distância e não ser o golpe de maior força,  pode ter potencial de nocaute, dependendo da força e da técnica do lutador.'''
-                                                )
-                                            )
-                                        ]
-                                    )
+                                ft.Container(
+                                    height=500,
+                                    width=1300,
+                                    image_src='images/IMG-20220402-WA0035.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN,
+                                ),
+                                ft.Container(
+                                    padding=20,
+                                    content=ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='''O que você encontrará neste tópico:
 
-                                ),
-                                ft.Tab(
-                                    text='Direto',
-                                    content=ft.Column(
-                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                        controls=[
-                                            direto,
-                                            ft.Text(
-                                                size=20,
-                                                color=ft.colors.AMBER,
-                                                weight=ft.FontWeight.BOLD,
-                                                text_align=ft.TextAlign.CENTER,
-                                                value='Direto do Muay Thai',
-                                            ),
-                                            ft.Container(
-                                                padding=20,
-                                                content=ft.Text(
-                                                    size=16,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''                                                  
-O direto é o golpe de mãos mais forte do arsenal do lutador de Muay Thai, pois é desferido com a mão traseira, carregando enorme potência.
+            Socos : Aprenda os diferentes tipos de socos, desde o jab até o cruzado, com instruções passo a passo e dicas para aprimorar sua técnica e potência.
 
-Assim como o jab, o alvo principal do direto é o rosto do adversário e, se bem conectado, pode levar ao nocaute com facilidade.
+            Chutes : Explore a variedade de chutes do Muay Thai, incluindo o chute circular, chute frontal e muito mais.
 
-Outro possível alvo do direto é o torso do oponente, visando fígado.'''
-                                                )
-                                            )
-                                        ]
-                                    )
-                                ),
-                                ft.Tab(
-                                    text='Cruzado',
-                                    content=ft.Column(
-                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                        controls=[
-                                            cruzado,
-                                            ft.Text(
-                                                size=20,
-                                                color=ft.colors.AMBER,
-                                                weight=ft.FontWeight.BOLD,
-                                                text_align=ft.TextAlign.CENTER,
-                                                value='Cruzado do Muay Thai',
-                                            ),
-                                            ft.Container(
-                                                padding=20,
-                                                content=ft.Text(
-                                                    size=16,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''
-O soco cruzado tem como alvo a cabeça do oponente, sendo desferido de um ângulo lateral e visando mais precisamente o queixo.
+            Joelhadas : Descubra como aplicar joelhadas devastadoras, tanto em combates de curta distância quanto em clinch, aprimorando sua capacidade de ataque e defesa.
 
-É um golpe bastante técnico, pode ser desferido com ambas as mãos (dianteira ou traseira) e possui grande potencial de derrubar o adversário.'''
-                                                )
-                                            )
-                                        ]
-                                    )
-                                ),
-                                ft.Tab(
-                                    text='Upper',
-                                    content=ft.Column(
-                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                        controls=[
-                                            upper,
-                                            ft.Text(
-                                                size=20,
-                                                color=ft.colors.AMBER,
-                                                weight=ft.FontWeight.BOLD,
-                                                text_align=ft.TextAlign.CENTER,
-                                                value='Upper do Muay Thai',
-                                            ),
-                                            ft.Container(
-                                                padding=20,
-                                                content=ft.Text(
-                                                    size=16,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''                                                  
-O gancho é um golpe desferido de baixo para cima e pode facilmente atravessar as defesas do lutador adversário.
+            Cotoveladas : As cotoveladas são algumas das técnicas mais letais do Muay Thai. Aqui, você aprenderá a usar essas armas com precisão e eficácia.
 
-Seus alvos são tanto o rosto quanto o abdômen (fígado). Tem potência elevada e pode levar ao nocaute em ambos os casos quando bem encaixado, sendo eficiente principalmente a curtas e médias distâncias
-
-Além disso, assim como o cruzado, pode ser desferido tanto com a mão dianteira quanto com a mão traseira.'''
-                                                )
-                                            )
-                                        ]
+            Cada golpe é explicado com detalhes. Com este aplicativo, você terá acesso a um guia abrangente que facilitará o aprendizado e o aprimoramento das suas habilidades no Muay Thai.'''
                                     )
+                                )
+                            ]
+                        ),
+                        ft.Divider(),
+                        ft.Column(
+                            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                            controls=[
+                                jab,
+                                ft.Text(
+                                    size=20,
+                                    color=ft.colors.AMBER,
+                                    italic=True,
+                                    weight=ft.FontWeight.BOLD,
+                                    text_align=ft.TextAlign.CENTER,
+                                    value='Jab do Muay Thai',
                                 ),
-                                ft.Tab(
-                                    text='Frontal',
-                                    content=ft.Column(
-                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                        controls=[
-                                            frontal,
-                                            ft.Text(
-                                                size=20,
-                                                color=ft.colors.AMBER,
-                                                weight=ft.FontWeight.BOLD,
-                                                text_align=ft.TextAlign.CENTER,
-                                                value='Chutes Frontais (pernas traseira e dianteira)',
-                                            ),
-                                            ft.Container(
-                                                padding=20,
-                                                content=ft.Text(
-                                                    size=16,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''
-O chute frontal, também conhecido como teep no Muay Thai, é uma técnica básica que busca criar e controlar a distância, podendo também ser usado para derrubar o adversário.
-Pode ser lançado com ambas as pernas (dianteira e traseira), tendo como alvo os quadris, o abdômen, o peito e também o rosto do oponente.'''
-                                                )
-                                            )
-                                        ]
+                                ft.Container(
+                                    padding=20,
+                                    content=ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.JUSTIFY,
+                                        value='''                                              
+            O soco mais básico do Muay Thai é o jab. Ele é desferido com a mão da frente, é rápido, tem como alvo do rosto do adversário.
+            Embora o principal objetivo do jab seja o controle da distância e não ser o golpe de maior força, pode ter potencial de nocaute, dependendo da força e da técnica do lutador.'''
                                     )
-                                ),
-                                ft.Tab(
-                                    text='Chute Circular',
-                                    content=ft.Column(
-                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                        controls=[
-                                            chute,
-                                            ft.Text(
-                                                size=20,
-                                                color=ft.colors.AMBER,
-                                                weight=ft.FontWeight.BOLD,
-                                                text_align=ft.TextAlign.CENTER,
-                                                value='Chute Lateral do Muay Thai',
-                                            ),
-                                            ft.Container(
-                                                padding=20,
-                                                content=ft.Text(
-                                                    size=16,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''                                                 
-O chute lateral do Muay Thai é considerado como a técnica de chute mais forte dentre as artes marciais.
-Extremamente potente, é desferido com a perna traseira e baseia-se na ideia de um machado atravessando lateralmente o oponente, seja para cortar sua perna, seu tronco ou sua cabeça.
-Sendo assim, possui três variações de altura: baixo (mirando a perna dianteira), médio (mirando tronco) e alto (mirando a cabeça do oponente).'''
-                                                )
-                                            )
-                                        ]
-                                    )
-                                ),
-                                ft.Tab(
-                                    text='Joelhada',
-                                    content=ft.Column(
-                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                        controls=[
-                                            joelhada,
-                                            ft.Text(
-                                                size=20,
-                                                color=ft.colors.AMBER,
-                                                weight=ft.FontWeight.BOLD,
-                                                text_align=ft.TextAlign.CENTER,
-                                                value='Joelhadas do Muay Thai',
-                                            ),
-                                            ft.Container(
-                                                padding=20,
-                                                content=ft.Text(
-                                                    size=16,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''                                                    
-O Muay Thai possui diversas variações da joelhada. Esses golpes podem ter média, curta e longa distância, dependendo da técnica utilizada.
-A joelhada mais básica do Muay Thai é a joelhada direta, que pode ser executada com qualquer um dos joelhos, sendo elas a joelhada direta e a joelhada trocada.
-Como você já pode imagina, a joelhada direta é desferida com o joelho traseiro, enquanto a joelhada trocada é desferida com a perna dianteira obedecendo os mesmos princípios do chute trocado (troca de base para melhor gerar potência.
-Essas joelhadas visam atacar diretamente abdômen e plexo solar do oponente.'''
-                                                )
-                                            )
-                                        ]
-                                    )
-                                ),
-                                ft.Tab(
-                                    text='Cotovelada',
-                                    content=ft.Container(
+                                )
+                            ]
+                        ),
+                        ft.Divider(),
+                        ft.Container(
+                            content=ft.Column(
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    direto,
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Direto do Muay Thai',
+                                    ),
+                                    ft.Container(
                                         padding=20,
-                                        content=ft.Column(
-                                            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                            controls=[
-                                                cotovelada,
-                                                ft.Text(
-                                                    size=20,
-                                                    color=ft.colors.AMBER,
-                                                    weight=ft.FontWeight.BOLD,
-                                                    text_align=ft.TextAlign.CENTER,
-                                                    value='Cotoveladas do Muay Thai',
-                                                ),
-                                                ft.Text(
-                                                    size=14,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''Golpes de cotovelo são bastante característicos do Muay Thai e são usados em curta distância e/ou dentro do clinch.
+                                        content=ft.Text(
+                                            size=16,
+                                            color=ft.colors.WHITE,
+                                            italic=True,
+                                            text_align=ft.TextAlign.JUSTIFY,
+                                            value='''                                                  
+            O direto é o golpe de mãos mais forte do arsenal do lutador de Muay Thai, pois é desferido com a mão traseira, carregando enorme potência.
+            Assim como o jab, o alvo principal do direto é o rosto do adversário e, se bem conectado, pode levar ao nocaute com facilidade.
+            Outro possível alvo do direto é o torso do oponente, visando fígado.'''
+                                        )
+                                    )
+                                ]
+                            )
+                        ),
+                        ft.Divider(),
+                        ft.Container(
+                            content=ft.Column(
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    cruzado,
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Cruzado do Muay Thai',
+                                    ),
+                                    ft.Container(
+                                        padding=20,
+                                        content=ft.Text(
+                                            size=16,
+                                            color=ft.colors.WHITE,
+                                            italic=True,
+                                            text_align=ft.TextAlign.JUSTIFY,
+                                            value='''
+            O soco cruzado tem como alvo a cabeça do oponente, sendo desferido de um ângulo lateral e visando mais precisamente o queixo.
+            É um golpe bastante técnico, pode ser desferido com ambas as mãos (dianteira ou traseira) e possui grande potencial de derrubar o adversário.'''
+                                        )
+                                    )
+                                ]
+                            )
+                        ),
+                        ft.Divider(),
+                        ft.Container(
+                            content=ft.Column(
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    upper,
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Upper do Muay Thai',
+                                    ),
+                                    ft.Container(
+                                        padding=20,
+                                        content=ft.Text(
+                                            size=16,
+                                            color=ft.colors.WHITE,
+                                            italic=True,
+                                            text_align=ft.TextAlign.JUSTIFY,
+                                            value='''                                                  
+            O gancho é um golpe desferido de baixo para cima e pode facilmente atravessar as defesas do lutador adversário.
+            Seus alvos são tanto o rosto quanto o abdômen (fígado). Tem potência elevada e pode levar ao nocaute em ambos os casos quando bem encaixado, sendo eficiente principalmente a curtas e médias distâncias
+            Além disso, assim como o cruzado, pode ser desferido tanto com a mão dianteira quanto com a mão traseira.'''
+                                        )
+                                    )
+                                ]
+                            )
+                        ),
+                        ft.Divider(),
+                        ft.Container(
+                            content=ft.Column(
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    frontal,
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Chutes Frontais (pernas traseira e dianteira)',
+                                    ),
+                                    ft.Container(
+                                        padding=20,
+                                        content=ft.Text(
+                                            size=16,
+                                            color=ft.colors.WHITE,
+                                            italic=True,
+                                            text_align=ft.TextAlign.JUSTIFY,
+                                            value='''
+            O chute frontal, também conhecido como teep no Muay Thai, é uma técnica básica que busca criar e controlar a distância, podendo também ser usado para derrubar o adversário.
+            Pode ser lançado com ambas as pernas (dianteira e traseira), tendo como alvo os quadris, o abdômen, o peito e também o rosto do oponente.'''
+                                        )
+                                    )
+                                ]
+                            )
+                        ),
+                        ft.Divider(),
+                        ft.Container(
+                            content=ft.Column(
+
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    chute,
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Chute Lateral do Muay Thai',
+                                    ),
+                                    ft.Container(
+                                        padding=20,
+                                        content=ft.Text(
+                                            size=16,
+                                            color=ft.colors.WHITE,
+                                            italic=True,
+                                            text_align=ft.TextAlign.JUSTIFY,
+                                            value='''                                                 
+            O chute lateral do Muay Thai é considerado como a técnica de chute mais forte dentre as artes marciais.
+            Extremamente potente, é desferido com a perna traseira e baseia-se na ideia de um machado atravessando lateralmente o oponente, seja para cortar sua perna, seu tronco ou sua cabeça.
+            Sendo assim, possui três variações de altura: baixo (mirando a perna dianteira), médio (mirando tronco) e alto (mirando a cabeça do oponente).'''
+                                        )
+                                    )
+                                ]
+                            )
+                        ),
+                        ft.Divider(),
+                        ft.Container(
+                            content=ft.Column(
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    joelhada,
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Joelhadas do Muay Thai',
+                                    ),
+                                    ft.Container(
+                                        padding=20,
+                                        content=ft.Text(
+                                            size=16,
+                                            color=ft.colors.WHITE,
+                                            italic=True,
+                                            text_align=ft.TextAlign.JUSTIFY,
+                                            value='''                                                    
+            O Muay Thai possui diversas variações da joelhada. Esses golpes podem ter média, curta e longa distância, dependendo da técnica utilizada.
+            A joelhada mais básica do Muay Thai é a joelhada direta, que pode ser executada com qualquer um dos joelhos, sendo elas a joelhada direta e a joelhada trocada.
+            Como você já pode imagina, a joelhada direta é desferida com o joelho traseiro, enquanto a joelhada trocada é desferida com a perna dianteira obedecendo os mesmos princípios do chute trocado (troca de base para melhor gerar potência.
+        Essas joelhadas visam atacar diretamente abdômen e plexo solar do oponente.'''
+                                        )
+                                    )
+                                ]
+                            )
+                        ),
+                        ft.Divider(),
+                        ft.Container(
+                            padding=20,
+                            content=ft.Column(
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    cotovelada,
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Cotoveladas do Muay Thai',
+                                    ),
+                                    ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.JUSTIFY,
+                                        value='''Golpes de cotovelo são bastante característicos do Muay Thai e são usados em curta distância e/ou dentro do clinch.
 Os principais golpes de cotovelo são:
 Horizontal;
 Ascendente;
 Diagonal.''',
-                                                ),
-                                                ft.Divider(color='TRANSPARENT'),
-                                                ft.Text(
-                                                    size=20,
-                                                    color=ft.colors.AMBER,
-                                                    weight=ft.FontWeight.BOLD,
-                                                    text_align=ft.TextAlign.CENTER,
-                                                    value='''Cotovelada Horizontal ou Lateral do Muay Thai''',
-                                                ),
-                                                ft.Text(
-                                                    size=14,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''A cotovelada horizontal ou lateral é um golpe visando o rosto do oponente, cortando horizontalmente, ou seja, traçando um vetor paralelo ao chão.
-Assim como vários outros golpes, pode ser executado tanto com o cotovelo dianteiro quanto com o traseiro.''',
-                                                ),
-                                                ft.Divider(color='TRANSPARENT'),
-                                                ft.Text(
-                                                    size=20,
-                                                    color=ft.colors.AMBER,
-                                                    weight=ft.FontWeight.BOLD,
-                                                    text_align=ft.TextAlign.CENTER,
-                                                    value='''Cotovelada Ascendente do Muay Thai''',
-                                                ),
-                                                ft.Text(
-                                                    size=14,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''A cotovelada ascendente é um golpe executado de baixo para cima (como o soco gancho), traçando uma linha vertical, ou seja, perpendicular ao solo (ao oposto da cotovelada horizontal).
-Tem como alvo o queixo e rosto, buscando penetrar a guarda do adversário.
-Também pode ser executado com ambos os cotovelos.''',
-                                                ),
-                                                ft.Divider(color='TRANSPARENT'),
-                                                ft.Text(
-                                                    size=20,
-                                                    color=ft.colors.AMBER,
-                                                    weight=ft.FontWeight.BOLD,
-                                                    text_align=ft.TextAlign.CENTER,
-                                                    value='''Cotovelada Diagonal do Muay Thai''',
-                                                ),
-                                                ft.Text(
-                                                    size=14,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''A cotovelada diagonal traça uma linha diagonal de cima para baixo, indo da esquerda para a direita ou da direita para a esquerda dependendo do lado com o qual foi desferido (lado esquerdo: cima-baixo, esquerda-direita; lado direito: cima-baixo, direita-esquerda), cruzando a frente do lutador.
-Seu alvo é a testa ou o supercílio do lutador adversário, com o objetivo de causar cortes e, consequentemente, sagramentos. ''',
-                                                ),
+                                    ),
+                                    ft.Divider(),
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='''Cotovelada Horizontal ou Lateral do Muay Thai''',
+                                    ),
+                                    ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.JUSTIFY,
+                                        value='''A cotovelada horizontal ou lateral é um golpe visando o rosto do oponente, cortando horizontalmente, ou seja, traçando um vetor paralelo ao chão.
+            Assim como vários outros golpes, pode ser executado tanto com o cotovelo dianteiro quanto com o traseiro.''',
+                                    ),
+                                    ft.Divider(),
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='''Cotovelada Ascendente do Muay Thai''',
+                                    ),
+                                    ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.JUSTIFY,
+                                        value='''A cotovelada ascendente é um golpe executado de baixo para cima (como o soco gancho), traçando uma linha vertical, ou seja, perpendicular ao solo (ao oposto da cotovelada horizontal).
+            Tem como alvo o queixo e rosto, buscando penetrar a guarda do adversário.
+            Também pode ser executado com ambos os cotovelos.''',
+                                    ),
+                                    ft.Divider(),
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='''Cotovelada Diagonal do Muay Thai''',
+                                    ),
+                                    ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.JUSTIFY,
+                                        value='''A cotovelada diagonal traça uma linha diagonal de cima para baixo, indo da esquerda para a direita ou da direita para a esquerda dependendo do lado com o qual foi desferido (lado esquerdo: cima-baixo, esquerda-direita; lado direito: cima-baixo, direita-esquerda), cruzando a frente do lutador.
+            Seu alvo é a testa ou o supercílio do lutador adversário, com o objetivo de causar cortes e, consequentemente, sagramentos. ''',
+                                    ),
 
-
-                                            ]
-                                        )
-                                    )
-                                ),
-                                ft.Tab(
-                                    text='Regras',
-                                    content=ft.Container(
-                                        padding=20,
-                                        content=ft.Column(
-                                            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                            controls=[
-                                                ft.Text(
-                                                    size=20,
-                                                    color=ft.colors.AMBER,
-                                                    weight=ft.FontWeight.BOLD,
-                                                    text_align=ft.TextAlign.CENTER,
-                                                    value='Regulamentos de Combate no Muay Thai',
-                                                ),
-                                                ft.Text(
-                                                    size=14,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''No Muay Thai, os combates são regidos por uma série de regulamentos que visam garantir a segurança dos praticantes e promover um jogo justo entre os lutadores. É importante que você esteja familiarizado com essas regras antes de entrar no ringue.''',
-                                                ),
-                                                ft.Divider(color='TRANSPARENT'),
-                                                ft.Text(
-                                                    size=20,
-                                                    color=ft.colors.AMBER,
-                                                    weight=ft.FontWeight.BOLD,
-                                                    text_align=ft.TextAlign.CENTER,
-                                                    value='Técnicas Permitidas e Proibidas',
-                                                ),
-                                                ft.Text(
-                                                    size=14,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''No Muay Thai, você pode usar socos, chutes, joelhadas e cotoveladas para atacar seu oponente. No entanto, existem algumas técnicas que são proibidas, como golpes na nuca, virilha ou na parte de trás da cabeça.
-            Além disso, não são permitidos golpes abaixo da cintura, dedos nos olhos, mordidas ou qualquer outra conduta antiética que possa prejudicar o adversário. O descumprimento dessas regras pode resultar em punições, incluindo a desclassificação do lutador.''',
-                                                ),
-                                                ft.Divider(color='TRANSPARENT'),
-                                                ft.Text(
-                                                    size=20,
-                                                    color=ft.colors.AMBER,
-                                                    weight=ft.FontWeight.BOLD,
-                                                    text_align=ft.TextAlign.CENTER,
-                                                    value='Uso de Cotovelos, Joelhos e Chutes',
-                                                ),
-                                                ft.Text(
-                                                    size=14,
-                                                    color=ft.colors.AMBER,
-                                                    text_align=ft.TextAlign.JUSTIFY,
-                                                    value='''O Muay Thai é conhecido por seu uso único de cotovelos, joelhos e chutes. No entanto, existem regras específicas para o uso dessas técnicas.
-            Por exemplo, os cotovelos só são permitidos em combates profissionais, enquanto que em lutas amadoras, seu uso é proibido. Além disso, não é permitido atingir a cabeça do oponente com o joelho.
-            Os chutes também possuem algumas restrições. Não é permitido realizar chutes na coxa interna, bem como chutes em um adversário que esteja caído no chão.''',
-                                                ),
-
-                                            ]
-                                        )
-
-                                    )
-                                )
-                            ]
-
-                        )
-
+                                ]
+                            )
+                        ),
+                        ft.Divider(),
+                        ft.Divider(color='transparent'),
+                        ft.Container(
+                            padding=20,
+                            content=ft.Column(
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                controls=[
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        weight=ft.FontWeight.BOLD,
+                                        italic=True,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Regulamentos de Combate no Muay Thai',
+                                    ),
+                                    ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.JUSTIFY,
+                                        value='''No Muay Thai, os combates são regidos por uma série de regulamentos que visam garantir a segurança dos praticantes e promover um jogo justo entre os lutadores. É importante que você esteja familiarizado com essas regras antes de entrar no ringue.''',
+                                    ),
+                                    ft.Divider(color='TRANSPARENT'),
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Técnicas Permitidas e Proibidas',
+                                    ),
+                                    ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.JUSTIFY,
+                                        value='''No Muay Thai, você pode usar socos, chutes, joelhadas e cotoveladas para atacar seu oponente. No entanto, existem algumas técnicas que são proibidas, como golpes na nuca, virilha ou na parte de trás da cabeça.
+                        Além disso, não são permitidos golpes abaixo da cintura, dedos nos olhos, mordidas ou qualquer outra conduta antiética que possa prejudicar o adversário. O descumprimento dessas regras pode resultar em punições, incluindo a desclassificação do lutador.''',
+                                    ),
+                                    ft.Divider(color='TRANSPARENT'),
+                                    ft.Text(
+                                        size=20,
+                                        color=ft.colors.AMBER,
+                                        italic=True,
+                                        weight=ft.FontWeight.BOLD,
+                                        text_align=ft.TextAlign.CENTER,
+                                        value='Uso de Cotovelos, Joelhos e Chutes',
+                                    ),
+                                    ft.Text(
+                                        size=16,
+                                        color=ft.colors.WHITE,
+                                        italic=True,
+                                        text_align=ft.TextAlign.JUSTIFY,
+                                        value='''O Muay Thai é conhecido por seu uso único de cotovelos, joelhos e chutes. No entanto, existem regras específicas para o uso dessas técnicas.
+                        Por exemplo, os cotovelos só são permitidos em combates profissionais, enquanto que em lutas amadoras, seu uso é proibido. Além disso, não é permitido atingir a cabeça do oponente com o joelho.
+                        Os chutes também possuem algumas restrições. Não é permitido realizar chutes na coxa interna, bem como chutes em um adversário que esteja caído no chão.''',
+                                    ),
+                                    ft.Divider(),
+                                ]
+                            )
+                        ),
                     ],
                     scroll=ft.ScrollMode.AUTO,
                     bgcolor=ft.colors.BLACK,
                     drawer=ft.NavigationDrawer(
+                        indicator_color=ft.colors.with_opacity(0.5, ft.colors.CYAN_ACCENT_200),
+                        bgcolor=ft.colors.with_opacity(0.5, ft.colors.INDIGO_900),
+                        tile_padding=ft.padding.symmetric(horizontal=0),
                         controls=[
                             ft.NavigationDrawerDestination(
                                 label='Home',
-                                icon=ft.icons.HOME,
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
                             ),
                             ft.NavigationDrawerDestination(
                                 label='Golpes',
-                                icon=ft.icons.STORE
+                                icon_content=ft.Container(
+                                    margin=0,
+                                    padding=0,
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
                             ),
                             ft.NavigationDrawerDestination(
                                 label='Origem',
-                                icon=ft.icons.STORE
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
                             ),
                             ft.NavigationDrawerDestination(
-                                label='Graduados',
-                                icon=ft.icons.STORE
+                                label='Graduados 09/12/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
                             ),
+                            ft.NavigationDrawerDestination(
+                                label='Graduados 23/06/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+
                         ],
                         on_change=change_route,
                     )
@@ -799,6 +904,12 @@ Seu alvo é a testa ou o supercílio do lutador adversário, com o objetivo de c
                     padding=0,
                     appbar=ft.AppBar(
                         bgcolor=ft.colors.TRANSPARENT,
+                        actions=[
+                            ft.IconButton(
+                                icon=ft.icons.BRIGHTNESS_6,
+                                on_click=toggle_theme
+                            )
+                        ]
                     ),
 
                     controls=[
@@ -850,29 +961,66 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                     scroll=ft.ScrollMode.AUTO,
                     bgcolor=ft.colors.BLACK,
                     drawer=ft.NavigationDrawer(
+                        indicator_color=ft.colors.with_opacity(0.5, ft.colors.CYAN_ACCENT_200),
+                        bgcolor=ft.colors.with_opacity(0.5, ft.colors.INDIGO_900),
+                        tile_padding=ft.padding.symmetric(horizontal=0),
                         controls=[
                             ft.NavigationDrawerDestination(
                                 label='Home',
-                                icon=ft.icons.HOME,
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
                             ),
                             ft.NavigationDrawerDestination(
                                 label='Golpes',
-                                icon=ft.icons.STORE
+                                icon_content=ft.Container(
+                                    margin=0,
+                                    padding=0,
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
                             ),
                             ft.NavigationDrawerDestination(
                                 label='Origem',
-                                icon=ft.icons.STORE
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
                             ),
                             ft.NavigationDrawerDestination(
-                                label='Galeria',
-                                icon=ft.icons.STORE
+                                label='Graduados 09/12/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
                             ),
+                            ft.NavigationDrawerDestination(
+                                label='Graduados 23/06/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+
                         ],
                         on_change=change_route,
                     )
                 )
             )
-        if page.route == '/Graduados':
+        if page.route == '/Graduados2':
             page.views.append(
                 ft.View(
                     spacing=0,
@@ -886,291 +1034,168 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                         shape=ft.CircleBorder('circle'),
                         scale=0.9,
                     ),
-                    route='/Graduados',
+                    route='/Graduados2',
                     padding=0,
                     appbar=ft.AppBar(
                         bgcolor=ft.colors.TRANSPARENT,
+                        actions=[
+                            ft.IconButton(
+                                icon=ft.icons.BRIGHTNESS_6,
+                                on_click=toggle_theme
+                            )
+                        ]
                     ),
                     controls=[
-                        exibir,
-                        ft.Container(
-                            content=ft.Text(
-                                value='GRADUAÇÃO 24/06/2023',
-                                weight=ft.FontWeight.BOLD,
-                                color='amber'
-                            )
-                        ),
-                        ft.Row(
-                            scroll=ft.ScrollMode.AUTO,
-                            spacing=5,
-                            controls=[
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/20.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/20.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/21.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/21.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/22.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/22.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/23.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/23.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/24.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/24.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/25.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/25.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/26.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/26.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/27.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/27.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/28.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/28.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/29.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/29.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/30.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/30 .jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/31.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/31.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/32.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/32.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/33.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/33.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/34.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/34.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/35.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir('images/35.jpg')
-                                ),
-
-                            ]
-                        ),
-                        ft.Divider(color=ft.colors.GREY),
-                        exibir1,
-                        ft.Container(
-                            content=ft.Text(
-                                value='GRADUAÇÃO 24/06/2023',
-                                weight=ft.FontWeight.BOLD,
-                                color='amber'
-
-                            )
-                        ),
-                        ft.Row(
-                            scroll=ft.ScrollMode.AUTO,
-                            spacing=5,
-                            controls=[
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/15.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/15.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/1.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/1.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/2.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/2.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/3.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/3.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/4.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/4.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/5.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/5.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/6.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/6.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/7.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/7.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/8.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/8.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/9.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/9.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/10.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/10 .jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/11.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/11.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/12.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/12.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/13.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/13.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/17.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/17.jpg')
-                                ),
-                                ft.Container(
-                                    height=100,
-                                    width=50,
-                                    image_src='images/16.jpg',
-                                    image_fit=ft.ImageFit.CONTAIN,
-                                    on_click=lambda e: update_exibir1('images/16.jpg')
-                                ),
-
-
-                            ]
-                        )
+                        graduados2_view(page),
 
                     ],
                     scroll=ft.ScrollMode.AUTO,
                     bgcolor=ft.colors.BLACK,
                     drawer=ft.NavigationDrawer(
+                        indicator_color=ft.colors.with_opacity(0.5, ft.colors.CYAN_ACCENT_200),
+                        bgcolor=ft.colors.with_opacity(0.5, ft.colors.INDIGO_900),
+                        tile_padding=ft.padding.symmetric(horizontal=0),
                         controls=[
                             ft.NavigationDrawerDestination(
                                 label='Home',
-                                icon=ft.icons.HOME,
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
                             ),
                             ft.NavigationDrawerDestination(
                                 label='Golpes',
-                                icon=ft.icons.STORE
+                                icon_content=ft.Container(
+                                    margin=0,
+                                    padding=0,
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
                             ),
                             ft.NavigationDrawerDestination(
                                 label='Origem',
-                                icon=ft.icons.STORE
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
                             ),
                             ft.NavigationDrawerDestination(
-                                label='Graduados',
-                                icon=ft.icons.STORE
+                                label='Graduados 09/12/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
                             ),
+                            ft.NavigationDrawerDestination(
+                                label='Graduados 23/06/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+
+                        ],
+                        on_change=change_route,
+                    )
+                )
+            )
+        if page.route == '/graduados1':
+            page.views.append(
+                ft.View(
+                    spacing=0,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    floating_action_button=ft.FloatingActionButton(
+                        content=ft.Image(
+                            src='images/whatssfundo.png',
+                            fit=ft.ImageFit.CONTAIN
+                        ),
+                        on_click=open_whatsapp,
+                        shape=ft.CircleBorder('circle'),
+                        scale=0.9,
+                    ),
+                    route='/graduados1',
+                    padding=0,
+                    appbar=ft.AppBar(
+                        bgcolor=ft.colors.TRANSPARENT,
+                        actions=[
+                            ft.IconButton(
+                                icon=ft.icons.BRIGHTNESS_6,
+                                on_click=toggle_theme
+                            )
+                        ]
+                    ),
+                    controls=[
+                        graduados1_view(page)
+                    ],
+                    scroll=ft.ScrollMode.AUTO,
+                    bgcolor=ft.colors.BLACK,
+                    drawer=ft.NavigationDrawer(
+                        indicator_color=ft.colors.with_opacity(0.5, ft.colors.CYAN_ACCENT_200),
+                        bgcolor=ft.colors.with_opacity(0.5, ft.colors.INDIGO_900),
+                        tile_padding=ft.padding.symmetric(horizontal=0),
+                        controls=[
+                            ft.NavigationDrawerDestination(
+                                label='Home',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Golpes',
+                                icon_content=ft.Container(
+                                    margin=0,
+                                    padding=0,
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Origem',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Graduados 09/12/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Graduados 23/06/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+
                         ],
                         on_change=change_route,
                     )
@@ -1180,7 +1205,7 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
 
         page.update()
         page.add(cont, texto, foto1, foto2, jab, direto, cruzado,
-                 upper, frontal, chute, joelhada, cotovelada, exibir, exibir1)
+                 upper, frontal, chute, joelhada, cotovelada)
         page.run_task(animate)
         page.run_task(anima)
         page.run_task(anima1)
