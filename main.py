@@ -37,7 +37,7 @@ def main(page: ft.Page):
             foto1.offset = ft.Offset(x=-1, y=0)
             foto1.update()
             await asyncio.sleep(4)  #Tempo escondido
-            foto1.offset = ft.Offset(x=1.25, y=0)
+            foto1.offset = ft.Offset(x=0.9, y=0)
             foto1.update()
             await asyncio.sleep(10)
 
@@ -55,7 +55,7 @@ def main(page: ft.Page):
             foto3.offset = ft.Offset(x=-1, y=0)
             foto3.update()
             await asyncio.sleep(4)
-            foto3.offset = ft.Offset(x=1.1, y=0)
+            foto3.offset = ft.Offset(x=0.8, y=0)
             foto3.update()
             await asyncio.sleep(10)
 
