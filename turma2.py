@@ -1,6 +1,6 @@
 import flet as ft
 
-def graduados2_view(page: ft.Page):
+def turma2_view(page: ft.Page):
 
     def change_main_image(e):
         # Verifica qual miniatura foi clicada

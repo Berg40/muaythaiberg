@@ -1,6 +1,7 @@
 import flet as ft
 from graduados1 import graduados1_view
-from graduados2 import graduados2_view
+from turma2 import turma2_view
+from galera3 import galera3_view
 import asyncio
 import math
 import os
@@ -83,11 +84,11 @@ def main(page: ft.Page):
         height=100,
         width=200,
         content=ft.Text(
-            color=ft.colors.ORANGE_700,
-            font_family='font2',
+            color=ft.colors.INDIGO_900,
+            font_family='font',
             italic=True,
             value='Força',
-            size=40
+            size=70
         ),
         offset=ft.Offset(y=0, x=0),
         animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE),
@@ -96,11 +97,12 @@ def main(page: ft.Page):
         height=100,
         width=200,
         content=ft.Text(
-            color=ft.colors.ORANGE_700,
-            font_family='font2',
+            color=ft.colors.INDIGO_900,
+            #font_family='font2',
             italic=True,
+            weight=ft.FontWeight.BOLD,
             value='Superação',
-            size=25
+            size=35
 
         ),
         offset=ft.Offset(y=0, x=0),
@@ -110,11 +112,11 @@ def main(page: ft.Page):
         height=100,
         width=200,
         content=ft.Text(
-            color=ft.colors.ORANGE_700,
-            font_family='font2',
+            color=ft.colors.INDIGO_900,
+            font_family='font',
             italic=True,
             value='Técnica',
-            size=40
+            size=60
 
         ),
         offset=ft.Offset(y=0, x=0),
@@ -214,8 +216,10 @@ def main(page: ft.Page):
         elif e.control.selected_index == 2:
             page.go('/Origem')
         elif e.control.selected_index == 3:
-            page.go('/Graduados2')
+            page.go('/galera3')
         elif e.control.selected_index == 4:
+            page.go('/turma2')
+        elif e.control.selected_index == 5:
             page.go('/graduados1')
 
 
@@ -230,7 +234,7 @@ def main(page: ft.Page):
                     ),
                     on_click=open_whatsapp,
                     shape=ft.CircleBorder('circle'),
-                    scale=0.9,
+                    scale=0.9
                 ),
                 spacing=0,
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -374,6 +378,15 @@ Saúde Mental: Como qualquer atividade física, o Muay Thai libera endorfinas, h
                         ),
                         ft.NavigationDrawerDestination(
                             label='Origem',
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                            )
+                        ),
+                        ft.NavigationDrawerDestination(
+                            label='Graduados 22/06/2024',
                             icon_content=ft.Container(
                                 height=100,
                                 width=100,
@@ -862,6 +875,15 @@ Diagonal.''',
                                 )
                             ),
                             ft.NavigationDrawerDestination(
+                            label='Graduados 22/06/2024',
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+                            ft.NavigationDrawerDestination(
                                 label='Graduados 09/12/2023',
                                 icon_content=ft.Container(
                                     height=100,
@@ -996,6 +1018,17 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                                 )
                             ),
                             ft.NavigationDrawerDestination(
+                            label='Graduados 22/06/2024',
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+                            
+                            
+                            ft.NavigationDrawerDestination(
                                 label='Graduados 09/12/2023',
                                 icon_content=ft.Container(
                                     height=100,
@@ -1020,7 +1053,7 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                     )
                 )
             )
-        if page.route == '/Graduados2':
+        if page.route == '/galera3':
             page.views.append(
                 ft.View(
                     spacing=0,
@@ -1034,7 +1067,7 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                         shape=ft.CircleBorder('circle'),
                         scale=0.9,
                     ),
-                    route='/Graduados2',
+                    route='/galera3',
                     padding=0,
                     appbar=ft.AppBar(
                         bgcolor=ft.colors.TRANSPARENT,
@@ -1046,7 +1079,7 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                         ]
                     ),
                     controls=[
-                        graduados2_view(page),
+                        galera3_view(page),
 
                     ],
                     scroll=ft.ScrollMode.AUTO,
@@ -1086,6 +1119,117 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                                     image_fit=ft.ImageFit.CONTAIN
                                 )
                             ),
+                            ft.NavigationDrawerDestination(
+                            label='Graduados 22/06/2024',
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+                            
+                            ft.NavigationDrawerDestination(
+                                label='Graduados 09/12/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Graduados 23/06/2023',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+
+                        ],
+                        on_change=change_route,
+                    )
+                )
+            )
+        if page.route == '/turma2':
+            page.views.append(
+                ft.View(
+                    spacing=0,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    floating_action_button=ft.FloatingActionButton(
+                        content=ft.Image(
+                            src='images/whatssfundo.png',
+                            fit=ft.ImageFit.CONTAIN
+                        ),
+                        on_click=open_whatsapp,
+                        shape=ft.CircleBorder('circle'),
+                        scale=0.9,
+                    ),
+                    route='/turma2',
+                    padding=0,
+                    appbar=ft.AppBar(
+                        bgcolor=ft.colors.TRANSPARENT,
+                        actions=[
+                            ft.IconButton(
+                                icon=ft.icons.BRIGHTNESS_6,
+                                on_click=toggle_theme
+                            )
+                        ]
+                    ),
+                    controls=[
+                        turma2_view(page),
+
+                    ],
+                    scroll=ft.ScrollMode.AUTO,
+                    bgcolor=ft.colors.BLACK,
+                    drawer=ft.NavigationDrawer(
+                        indicator_color=ft.colors.with_opacity(0.5, ft.colors.CYAN_ACCENT_200),
+                        bgcolor=ft.colors.with_opacity(0.5, ft.colors.INDIGO_900),
+                        tile_padding=ft.padding.symmetric(horizontal=0),
+                        controls=[
+                            ft.NavigationDrawerDestination(
+                                label='Home',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Golpes',
+                                icon_content=ft.Container(
+                                    margin=0,
+                                    padding=0,
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+
+                            ),
+                            ft.NavigationDrawerDestination(
+                                label='Origem',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+                            ft.NavigationDrawerDestination(
+                            label='Graduados 22/06/2024',
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+                            
                             ft.NavigationDrawerDestination(
                                 label='Graduados 09/12/2023',
                                 icon_content=ft.Container(
@@ -1176,6 +1320,16 @@ No futuro, os países europeus como Holanda e França entrariam em contato com a
                                     image_fit=ft.ImageFit.CONTAIN
                                 )
                             ),
+                            ft.NavigationDrawerDestination(
+                            label='Graduados 22/06/2024',
+                            icon_content=ft.Container(
+                                height=100,
+                                width=100,
+                                image_src='images/logo.png',
+                                image_fit=ft.ImageFit.CONTAIN
+                                )
+                            ),
+                            
                             ft.NavigationDrawerDestination(
                                 label='Graduados 09/12/2023',
                                 icon_content=ft.Container(
