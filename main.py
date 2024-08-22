@@ -84,10 +84,23 @@ def main(page: ft.Page):
         height=100,
         width=200,
         content=ft.Text(
-            color=ft.colors.INDIGO_900,
+            #color=ft.colors.INDIGO_900,
             font_family='font',
             italic=True,
             value='Força',
+            style=ft.TextStyle(
+                foreground=ft.Paint(
+                   gradient=ft.PaintLinearGradient(
+                       begin=ft.Offset(x=0, y=500),
+                       end=ft.Offset(x=600, y=0),
+                       colors=[
+                           ft.colors.YELLOW_700,
+                           ft.colors.BLACK54,
+
+                       ]
+                   )
+                )
+            ),
             size=70
         ),
         offset=ft.Offset(y=0, x=0),
@@ -102,6 +115,19 @@ def main(page: ft.Page):
             italic=True,
             weight=ft.FontWeight.BOLD,
             value='Superação',
+            style=ft.TextStyle(
+                foreground=ft.Paint(
+                    gradient=ft.PaintLinearGradient(
+                        begin=ft.Offset(x=0, y=500),
+                        end=ft.Offset(x=500, y=0),
+                        colors=[
+                            ft.colors.YELLOW_700,
+                            ft.colors.BLACK54,
+
+                        ]
+                    )
+                )
+            ),
             size=35
 
         ),
@@ -116,6 +142,19 @@ def main(page: ft.Page):
             font_family='font',
             italic=True,
             value='Técnica',
+            style=ft.TextStyle(
+                foreground=ft.Paint(
+                    gradient=ft.PaintLinearGradient(
+                        begin=ft.Offset(x=0, y=0),
+                        end=ft.Offset(x=400, y=0),
+                        colors=[
+                            ft.colors.YELLOW_700,
+                            ft.colors.BLACK,
+
+                        ]
+                    )
+                )
+            ),
             size=60
 
         ),
@@ -253,11 +292,11 @@ def main(page: ft.Page):
                     cont,
 
                     ft.Container(
-                        image_src='images/BackgroundEraser_20240613_113828071.png',
+                        image_src='images/images (6).jpeg',
                         image_fit=ft.ImageFit.FIT_HEIGHT,
-                        image_opacity=0.5,
+                        image_opacity=1,
                         margin=0,
-                        padding=20,
+                        padding=ft.Padding(top=20, bottom=0, left=20, right=20),
                         gradient=ft.SweepGradient(  # Ele inicia do centro para direita, como se fosse um leque
                             colors=[
                                 ft.colors.GREY_500, ft.colors.GREY_800, ft.colors.GREY_500],
@@ -268,59 +307,71 @@ def main(page: ft.Page):
                         content=ft.Column(
                             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                             controls=[
-                                ft.Text(
-                                    text_align=ft.TextAlign.CENTER,
-                                    value='Muay Thai',
-                                    size=30,
-                                    weight=ft.FontWeight.BOLD,
-                                    color='amber'
+                                ft.Container(
+                                    height=400,
+                                    width=800,
+                                    image_src='images/TEXTO1.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 ),
-                                ft.Text(
-                                    size=16,
-                                    color='black',
-                                    weight=ft.FontWeight.BOLD,
-                                    value='''Essa arte marcial milenar, originária da Tailândia, é conhecida não apenas por sua eficácia em competições, mas também pelos inúmeros benefícios que traz para a saúde física e mental de seus praticantes. E quando treinada sob a orientação de um personal trainer especializado, os resultados podem ser ainda mais impressionantes.'''
+
+                                ft.Container(
+                                    height=700,
+                                    width=1000,
+                                    image_src='images/TEXTO2.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 ),
-                                ft.Divider(),
-                                ft.Text(
-                                    text_align=ft.TextAlign.CENTER,
-                                    value='O que é o Muay Thai?',
-                                    size=30,
-                                    weight=ft.FontWeight.BOLD,
-                                    color='amber'
+
+                                ft.Container(
+                                    height=480,
+                                    width=800,
+                                    image_src='images/TEXTO3.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 ),
-                                ft.Text(
-                                    size=16,
-                                    color=ft.colors.BLACK,
-                                    weight=ft.FontWeight.BOLD,
-                                    value='''Muay Thai, ou boxe tailandês, é uma modalidade que combina golpes com os punhos, cotovelos, joelhos e canelas, além de envolver técnicas de clinch (agarre). A prática regular desse esporte exige resistência, força, flexibilidade e coordenação motora, proporcionando um treino completo para o corpo.'''
+
+                                ft.Container(
+                                    height=620,
+                                    width=800,
+                                    image_src='images/TEXTO04.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 ),
-                                ft.Divider(),
-                                ft.Text(
-                                    text_align=ft.TextAlign.CENTER,
-                                    value='Benefícios do Muay Thai para a Saúde',
-                                    size=30,
-                                    weight=ft.FontWeight.BOLD,
-
-
-
-                                    color='amber'
+                                ft.Container(
+                                    height=520,
+                                    width=800,
+                                    image_src='images/TEXTO5.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 ),
-                                ft.Text(
-                                    size=16,
-                                    color='black',
-                                    weight=ft.FontWeight.BOLD,
-                                    value='''Melhora do Condicionamento Físico: O Muay Thai é um treino cardiovascular intenso que ajuda a melhorar a resistência e a capacidade pulmonar. Sessões regulares podem aumentar significativamente o nível de condicionamento físico geral.
-
-Fortalecimento Muscular: Os movimentos repetitivos de chutes, socos e joelhadas trabalham todos os grupos musculares do corpo, fortalecendo-os e tonificando-os.
-
-Perda de Peso: Devido à alta intensidade dos treinos, o Muay Thai é extremamente eficaz na queima de calorias. Uma hora de treino pode queimar até 1000 calorias, ajudando na perda de peso e na redução de gordura corporal.
-
-Coordenação e Flexibilidade: A prática constante melhora a coordenação motora e a flexibilidade, reduzindo o risco de lesões no dia a dia.
-
-Saúde Mental: Como qualquer atividade física, o Muay Thai libera endorfinas, hormônios que promovem a sensação de bem-estar e combatem o estresse e a ansiedade. Além disso, a disciplina e o foco necessários para o treino ajudam a melhorar a concentração e a autoestima.
-'''
+                                ft.Container(
+                                    height=680,
+                                    width=1000,
+                                    image_src='images/TEXTO6.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 ),
+                                ft.Container(
+                                    height=550,
+                                    width=1000,
+                                    image_src='images/TEXTO7.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                ),
+                                ft.Container(
+                                    height=500,
+                                    width=1000,
+                                    image_src='images/TEXTO8.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                ),
+                                ft.Container(
+                                    height=650,
+                                    width=800,
+                                    image_src='images/TEXTO9.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                ),
+                                ft.Container(
+                                    height=600,
+                                    width=800,
+                                    image_src='images/TEXTO10.jpg',
+                                    image_fit=ft.ImageFit.CONTAIN
+                                ),
+                                ft.Divider(ft.colors.TRANSPARENT)
+
                             ]
                         )
                     ),
@@ -329,7 +380,7 @@ Saúde Mental: Como qualquer atividade física, o Muay Thai libera endorfinas, h
                             ft.Container(
                                 height=600,
                                 width=1300,
-                                image_src='images/berg_andrade2.jpg',
+                                image_src='images/fotoCapa.png',
                                 image_fit=ft.ImageFit.COVER,
                                 # offset=ft.Offset(y=0, x=0),
                                 # animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE_IN),
@@ -347,6 +398,128 @@ Saúde Mental: Como qualquer atividade física, o Muay Thai libera endorfinas, h
 
                         ]
                     ),
+
+                    ft.Container(
+                        height=550,
+                        width=1300,
+                        padding=ft.padding.only(left=10, right=10, top=40, bottom=20),
+                        bgcolor=ft.colors.GREY_800,
+                        image_src='images/fotofinal.jpg',
+                        image_fit=ft.ImageFit.COVER,
+                        image_opacity=0.3,
+                        content=ft.Column(
+                            expand=True,
+                            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                            spacing=0,
+                            run_spacing=0,
+                            controls=[
+                                ft.Row(
+                                    wrap=True,
+                                    col=2,
+                                    alignment=ft.MainAxisAlignment.CENTER,
+                                    spacing=0,
+                                    controls=[
+                                        ft.Container(
+                                            height=80,
+                                            width=60,
+                                            padding=ft.padding.only(left=0, right=0, top=0, bottom=0),
+                                            image_src='images/logo.png',
+                                            image_fit=ft.ImageFit.COVER,
+                                        ),
+                                        ft.Container(
+                                            height=80,
+                                            width=200,
+                                            padding=ft.padding.only(top=20, left=0, right=0, bottom=0),
+                                            content=ft.Column(
+                                                spacing=0,
+                                                controls=[
+                                                    ft.Text(
+                                                        value='BERG ANDRADE',
+                                                        weight=ft.FontWeight.BOLD,
+                                                        color=ft.colors.WHITE,
+                                                        italic=True,
+                                                        size=15,
+                                                    ),
+                                                    ft.Text(
+                                                        value='Professor de Muay Thai | Personal Fight',
+                                                        size=10,
+                                                        color=ft.colors.WHITE54
+                                                    )
+                                                ]
+                                            )
+                                        ),
+                                    ]
+                                ),
+                                ft.Text(
+                                    text_align=ft.TextAlign.CENTER,
+                                    value='Treinos personalizados e focados no',
+                                    color=ft.colors.WHITE
+                                ),
+                                ft.Text(
+                                    text_align=ft.TextAlign.CENTER,
+                                    value='seu objetivo de saúde e qualidade de',
+                                    color=ft.colors.WHITE
+                                ),
+                                ft.Text(
+                                    text_align=ft.TextAlign.CENTER,
+                                    value='vida. Vem treinar comigo.',
+                                    color=ft.colors.WHITE
+                                ),
+                                ft.Container(
+                                    height=80,
+                                ),
+                                ft.Row(
+                                    alignment=ft.MainAxisAlignment.CENTER,
+                                    spacing=0,
+                                    run_spacing=0,
+                                    controls=[
+                                        ft.Container(
+                                            height=25,
+                                            width=25,
+                                            image_src='images/whatssfundo.png',
+                                            image_fit=ft.ImageFit.CONTAIN
+                                        ),
+                                        ft.Text(
+                                            value='(12) 997071992',
+                                            color=ft.colors.WHITE,
+                                        ),
+                                    ]
+                                ),
+                                ft.Row(
+                                    alignment=ft.MainAxisAlignment.CENTER,
+                                    spacing=0,
+                                    run_spacing=5,
+                                    controls=[
+                                        ft.Container(
+                                            height=25,
+                                            width=25,
+                                            image_src='images/instagram1.png',
+                                            image_fit=ft.ImageFit.CONTAIN,
+                                        ),
+                                        ft.TextButton(
+                                            tooltip='Acesse meu Instagram',
+                                            text='@berg_andrade2',
+                                            url='https://www.instagram.com/berg_andrade2/',
+                                        ),
+                                    ]
+                                ),
+                                ft.Container(
+                                    height=150
+                                ),
+                                ft.Text(
+                                    value='Copyright 2024 Berg Andrade | Criado',
+                                    color=ft.colors.WHITE54,
+                                    size=10
+                                ),
+                                ft.Text(
+                                    value='Por: Berg Andrade Digital',
+                                    color=ft.colors.WHITE54,
+                                    size=10
+                                ),
+                                ft.Divider()
+                            ]
+                        )
+                    )
                 ],
                 scroll=ft.ScrollMode.AUTO,
                 bgcolor=ft.colors.BLACK,
