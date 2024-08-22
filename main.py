@@ -84,7 +84,7 @@ def main(page: ft.Page):
         height=100,
         width=200,
         content=ft.Text(
-            #color=ft.colors.INDIGO_900,
+
             font_family='font',
             italic=True,
             value='Força',
