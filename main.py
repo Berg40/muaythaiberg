@@ -6,6 +6,7 @@ import asyncio
 import math
 import os
 
+
 def main(page: ft.Page):
     page.window_always_on_top = True
     page.bgcolor = ft.colors.BLACK
@@ -33,11 +34,11 @@ def main(page: ft.Page):
             cont.update()
             await asyncio.sleep(1)
 
-    async def anima(e=None):  #Animate desativado
+    async def anima(e=None):  # Animate desativado
         while True:
             foto1.offset = ft.Offset(x=-1, y=0)
             foto1.update()
-            await asyncio.sleep(4)  #Tempo escondido
+            await asyncio.sleep(4)  # Tempo escondido
             foto1.offset = ft.Offset(x=0.9, y=0)
             foto1.update()
             await asyncio.sleep(10)
@@ -59,7 +60,6 @@ def main(page: ft.Page):
             foto3.offset = ft.Offset(x=0.8, y=0)
             foto3.update()
             await asyncio.sleep(10)
-
 
     cont = ft.Container(
         height=300,
@@ -90,15 +90,15 @@ def main(page: ft.Page):
             value='Força',
             style=ft.TextStyle(
                 foreground=ft.Paint(
-                   gradient=ft.PaintLinearGradient(
-                       begin=ft.Offset(x=0, y=0),
-                       end=ft.Offset(x=600, y=0),
-                       colors=[
-                           ft.colors.YELLOW_700,
-                           ft.colors.BLACK54,
+                    gradient=ft.PaintLinearGradient(
+                        begin=ft.Offset(x=0, y=0),
+                        end=ft.Offset(x=600, y=0),
+                        colors=[
+                            ft.colors.YELLOW_700,
+                            ft.colors.BLACK54,
 
-                       ]
-                   )
+                        ]
+                    )
                 )
             ),
             size=70
@@ -111,7 +111,7 @@ def main(page: ft.Page):
         width=200,
         content=ft.Text(
             color=ft.colors.INDIGO_900,
-            #font_family='font2',
+            # font_family='font2',
             italic=True,
             weight=ft.FontWeight.BOLD,
             value='Superação',
@@ -146,7 +146,7 @@ def main(page: ft.Page):
                 foreground=ft.Paint(
                     gradient=ft.PaintLinearGradient(
                         begin=ft.Offset(x=0, y=0),
-                        end=ft.Offset(x=600, y=0),
+                        end=ft.Offset(x=700, y=0),
                         colors=[
                             ft.colors.YELLOW_700,
                             ft.colors.BLACK,
@@ -167,8 +167,8 @@ def main(page: ft.Page):
         width=1300,
         image_src='images/Jab.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
-        #scale=ft.Scale(scale=1),
-        #animate_scale=ft.Animation(duration=5000, curve=ft.AnimationCurve.DECELERATE),
+        # scale=ft.Scale(scale=1),
+        # animate_scale=ft.Animation(duration=5000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     direto = ft.Container(
@@ -177,8 +177,8 @@ def main(page: ft.Page):
         offset=ft.Offset(y=0, x=0),
         image_src='images/Direto.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
-        #scale=ft.Scale(scale=1),
-        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        # scale=ft.Scale(scale=1),
+        # animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     cruzado = ft.Container(
@@ -186,8 +186,8 @@ def main(page: ft.Page):
         width=1300,
         image_src='images/Cruzado.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
-        #scale=ft.Scale(scale=1),
-        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        # scale=ft.Scale(scale=1),
+        # animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     upper = ft.Container(
@@ -196,8 +196,8 @@ def main(page: ft.Page):
 
         image_src='images/Upeercut.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
-        #scale=ft.Scale(scale=1),
-        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        # scale=ft.Scale(scale=1),
+        # animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     frontal = ft.Container(
@@ -206,8 +206,8 @@ def main(page: ft.Page):
 
         image_src='images/Chute Frontal.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
-        #scale=ft.Scale(scale=1),
-        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        # scale=ft.Scale(scale=1),
+        # animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     chute = ft.Container(
@@ -215,8 +215,8 @@ def main(page: ft.Page):
         width=1300,
         image_src='images/Chutebaixo.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
-        #scale=ft.Scale(scale=1),
-        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        # scale=ft.Scale(scale=1),
+        # animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     joelhada = ft.Container(
@@ -224,8 +224,8 @@ def main(page: ft.Page):
         width=1300,
         image_src='images/Joelho.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
-        #scale=ft.Scale(scale=1),
-        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        # scale=ft.Scale(scale=1),
+        # animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     cotovelada = ft.Container(
@@ -233,19 +233,15 @@ def main(page: ft.Page):
         width=1300,
         image_src='images/CotoveloHorizontal.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
-        #scale=ft.Scale(scale=1),
-        #animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        # scale=ft.Scale(scale=1),
+        # animate_scale=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
     )
 
     page.update()
 
-
-
     def open_whatsapp(e):
         whatsapp_url = 'https://api.whatsapp.com/send?phone=5512997071992'
         page.launch_url(whatsapp_url)
-
-
 
     def change_route(e):  # Navigation Drawer route change function
         if e.control.selected_index == 0:
@@ -260,7 +256,6 @@ def main(page: ft.Page):
             page.go('/turma2')
         elif e.control.selected_index == 5:
             page.go('/graduados1')
-
 
     def route_change(route):
         page.views.clear()
@@ -314,13 +309,13 @@ def main(page: ft.Page):
                                             image_src='images/TEXTO1.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
 
-
                                         ),
 
                                         ft.Container(
                                             height=700,
                                             width=1000,
-                                            border_radius=ft.BorderRadius(top_left=20,top_right=20, bottom_right=20, bottom_left=20),
+                                            border_radius=ft.BorderRadius(top_left=20, top_right=20, bottom_right=20,
+                                                                          bottom_left=20),
                                             image_src='images/TEXTO2.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
                                         ),
@@ -402,7 +397,6 @@ def main(page: ft.Page):
                                     ]
                                 )
                             ),
-
 
                         ]
                     ),
@@ -595,7 +589,6 @@ def main(page: ft.Page):
                             )
                         ),
 
-
                     ],
                     on_change=change_route,
                 ),
@@ -645,7 +638,7 @@ def main(page: ft.Page):
                                         content=ft.Text(
                                             size=26,
                                             weight=ft.FontWeight.BOLD,
-                                            #italic=True,
+                                            # italic=True,
                                             font_family='prata',
                                             style=ft.TextStyle(
                                                 foreground=ft.Paint(
@@ -707,7 +700,7 @@ Joelhadas: Descubra como aplicar joelhadas devastadoras, tanto em combates de cu
 
 Cotoveladas: As cotoveladas são algumas das técnicas mais letais do Muay Thai. Aqui, você aprenderá a usar essas armas com precisão e eficácia.
 
-Cada golpe é explicado com detalhes. Com este aplicativo, você terá acesso a um guia abrangente que facilitará o aprendizado e o aprimoramento das suas habilidades no Muay Thai.'''
+Cada golpe é explicado com detalhes. Neste site, você terá acesso a um guia abrangente que facilitará o aprendizado e o aprimoramento das suas habilidades no Muay Thai.'''
                                                             )
                                                         )
                                                     ]
@@ -1406,12 +1399,12 @@ Os chutes também possuem algumas restrições. Não é permitido realizar chute
                                 )
                             ),
                             ft.NavigationDrawerDestination(
-                            label='Graduados 22/06/2024',
-                            icon_content=ft.Container(
-                                height=100,
-                                width=100,
-                                image_src='images/logo.png',
-                                image_fit=ft.ImageFit.CONTAIN
+                                label='Graduados 22/06/2024',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 )
                             ),
                             ft.NavigationDrawerDestination(
@@ -1475,7 +1468,8 @@ Os chutes também possuem algumas restrições. Não é permitido realizar chute
                             image_src='images/Mármore final.jpg',
                             image_fit=ft.ImageFit.COVER,
                             content=ft.Container(
-                                border_radius=ft.BorderRadius(top_left=10, top_right=10, bottom_left=10, bottom_right=10),
+                                border_radius=ft.BorderRadius(top_left=10, top_right=10, bottom_left=10,
+                                                              bottom_right=10),
                                 bgcolor='#1B1C1D',
                                 padding=20,
                                 content=ft.Column(
@@ -1597,16 +1591,15 @@ MUAY THAI?'''
                                 )
                             ),
                             ft.NavigationDrawerDestination(
-                            label='Graduados 22/06/2024',
-                            icon_content=ft.Container(
-                                height=100,
-                                width=100,
-                                image_src='images/logo.png',
-                                image_fit=ft.ImageFit.CONTAIN
+                                label='Graduados 22/06/2024',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 )
                             ),
-                            
-                            
+
                             ft.NavigationDrawerDestination(
                                 label='Graduados 09/12/2023',
                                 icon_content=ft.Container(
@@ -1699,15 +1692,15 @@ MUAY THAI?'''
                                 )
                             ),
                             ft.NavigationDrawerDestination(
-                            label='Graduados 22/06/2024',
-                            icon_content=ft.Container(
-                                height=100,
-                                width=100,
-                                image_src='images/logo.png',
-                                image_fit=ft.ImageFit.CONTAIN
+                                label='Graduados 22/06/2024',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 )
                             ),
-                            
+
                             ft.NavigationDrawerDestination(
                                 label='Graduados 09/12/2023',
                                 icon_content=ft.Container(
@@ -1800,15 +1793,15 @@ MUAY THAI?'''
                                 )
                             ),
                             ft.NavigationDrawerDestination(
-                            label='Graduados 22/06/2024',
-                            icon_content=ft.Container(
-                                height=100,
-                                width=100,
-                                image_src='images/logo.png',
-                                image_fit=ft.ImageFit.CONTAIN
+                                label='Graduados 22/06/2024',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 )
                             ),
-                            
+
                             ft.NavigationDrawerDestination(
                                 label='Graduados 09/12/2023',
                                 icon_content=ft.Container(
@@ -1900,15 +1893,15 @@ MUAY THAI?'''
                                 )
                             ),
                             ft.NavigationDrawerDestination(
-                            label='Graduados 22/06/2024',
-                            icon_content=ft.Container(
-                                height=100,
-                                width=100,
-                                image_src='images/logo.png',
-                                image_fit=ft.ImageFit.CONTAIN
+                                label='Graduados 22/06/2024',
+                                icon_content=ft.Container(
+                                    height=100,
+                                    width=100,
+                                    image_src='images/logo.png',
+                                    image_fit=ft.ImageFit.CONTAIN
                                 )
                             ),
-                            
+
                             ft.NavigationDrawerDestination(
                                 label='Graduados 09/12/2023',
                                 icon_content=ft.Container(
@@ -1935,7 +1928,6 @@ MUAY THAI?'''
                 )
             )
 
-
         page.update()
         page.add(cont, texto, foto1, foto2, jab, direto, cruzado,
                  upper, frontal, chute, joelhada, cotovelada)
@@ -1943,7 +1935,6 @@ MUAY THAI?'''
         page.run_task(anima)
         page.run_task(anima1)
         page.run_task(anima2)
-
 
     def view_pop(view):  # View pop function
         page.views.pop()
@@ -1955,7 +1946,6 @@ MUAY THAI?'''
     page.go(page.route)
 
 
-
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000)) #para colocar no heroku
-    ft.app(target=main, assets_dir='assets', port=port, view=ft.WEB_BROWSER) #para colocar no heroku
+    port = int(os.environ.get("PORT", 5000))  # para colocar no heroku
+    ft.app(target=main, assets_dir='assets', port=port, view=ft.WEB_BROWSER)  # para colocar no heroku

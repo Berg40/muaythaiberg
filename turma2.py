@@ -179,4 +179,3 @@ def turma2_view(page: ft.Page):
     )
 
     return layout
-
