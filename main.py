@@ -89,7 +89,7 @@ def main(page: ft.Page):
         height=100,
         width=200,
         content=ft.Text(
-            font_family='font',
+            font_family='prata',
             italic=True,
             value='Força',
             style=ft.TextStyle(
@@ -105,7 +105,7 @@ def main(page: ft.Page):
                     )
                 )
             ),
-            size=70
+            size=60
         ),
         offset=ft.Offset(y=0, x=0),
         animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE),
@@ -115,7 +115,7 @@ def main(page: ft.Page):
         width=200,
         content=ft.Text(
             color=ft.colors.INDIGO_900,
-            # font_family='font2',
+            font_family='prata',
             italic=True,
             weight=ft.FontWeight.BOLD,
             value='Superação',
@@ -140,26 +140,26 @@ def main(page: ft.Page):
     )
     foto3 = ft.Container(
         height=100,
-        width=200,
+        width=250,
         content=ft.Text(
-            color=ft.colors.INDIGO_900,
-            font_family='font',
+
+            font_family='prata',
             italic=True,
             value='Técnica',
             style=ft.TextStyle(
                 foreground=ft.Paint(
                     gradient=ft.PaintLinearGradient(
-                        begin=ft.Offset(x=200, y=0),
-                        end=ft.Offset(x=700, y=0),
+                        begin=ft.Offset(x=0, y=0),
+                        end=ft.Offset(x=600, y=0),
                         colors=[
                             ft.colors.YELLOW_700,
-                            ft.colors.BLACK,
+                            ft.colors.BLACK54,
 
                         ]
                     )
                 )
             ),
-            size=60
+            size=50
 
         ),
         offset=ft.Offset(y=0, x=0),
@@ -168,7 +168,7 @@ def main(page: ft.Page):
 
     jab = ft.Container(
         height=200,
-        width=1300,
+        width=500,
         image_src='images/Jab.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
         # scale=ft.Scale(scale=1),
@@ -177,7 +177,7 @@ def main(page: ft.Page):
 
     direto = ft.Container(
         height=200,
-        width=1300,
+        width=500,
         offset=ft.Offset(y=0, x=0),
         image_src='images/Direto.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
@@ -187,7 +187,7 @@ def main(page: ft.Page):
 
     cruzado = ft.Container(
         height=200,
-        width=1300,
+        width=500,
         image_src='images/Cruzado.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
         # scale=ft.Scale(scale=1),
@@ -196,7 +196,7 @@ def main(page: ft.Page):
 
     upper = ft.Container(
         height=200,
-        width=1300,
+        width=500,
 
         image_src='images/Upeercut.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
@@ -206,7 +206,7 @@ def main(page: ft.Page):
 
     frontal = ft.Container(
         height=200,
-        width=1300,
+        width=500,
 
         image_src='images/Chute Frontal.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
@@ -216,7 +216,7 @@ def main(page: ft.Page):
 
     chute = ft.Container(
         height=200,
-        width=1300,
+        width=500,
         image_src='images/Chutebaixo.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
         # scale=ft.Scale(scale=1),
@@ -225,7 +225,7 @@ def main(page: ft.Page):
 
     joelhada = ft.Container(
         height=200,
-        width=1300,
+        width=500,
         image_src='images/Joelho.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
         # scale=ft.Scale(scale=1),
@@ -234,7 +234,7 @@ def main(page: ft.Page):
 
     cotovelada = ft.Container(
         height=200,
-        width=1300,
+        width=500,
         image_src='images/CotoveloHorizontal.gif',
         image_fit=ft.ImageFit.SCALE_DOWN,
         # scale=ft.Scale(scale=1),
@@ -309,7 +309,7 @@ def main(page: ft.Page):
                                     controls=[
                                         ft.Container(
                                             height=400,
-                                            width=800,
+                                            width=500,
                                             image_src='images/TEXTO1.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
 
@@ -317,7 +317,7 @@ def main(page: ft.Page):
 
                                         ft.Container(
                                             height=700,
-                                            width=1000,
+                                            width=500,
                                             border_radius=ft.BorderRadius(top_left=20, top_right=20, bottom_right=20,
                                                                           bottom_left=20),
                                             image_src='images/TEXTO2.jpg',
@@ -326,88 +326,85 @@ def main(page: ft.Page):
 
                                         ft.Container(
                                             height=480,
-                                            width=800,
+                                            width=500,
                                             image_src='images/TEXTO3.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
                                         ),
 
                                         ft.Container(
                                             height=620,
-                                            width=800,
+                                            width=500,
                                             image_src='images/TEXTO04.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
                                         ),
                                         ft.Container(
                                             height=520,
-                                            width=800,
+                                            width=500,
                                             image_src='images/TEXTO5.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
                                         ),
                                         ft.Container(
                                             height=680,
-                                            width=1000,
+                                            width=500,
                                             image_src='images/TEXTO6.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
                                         ),
                                         ft.Container(
                                             height=550,
-                                            width=1000,
+                                            width=500,
                                             image_src='images/TEXTO7.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
                                         ),
                                         ft.Container(
                                             height=500,
-                                            width=1000,
+                                            width=500,
                                             image_src='images/TEXTO8.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
                                         ),
                                         ft.Container(
                                             height=650,
-                                            width=800,
+                                            width=500,
                                             image_src='images/TEXTO9.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
                                         ),
                                         ft.Container(
                                             height=600,
-                                            width=800,
+                                            width=500,
                                             image_src='images/TEXTO10.jpg',
                                             image_fit=ft.ImageFit.CONTAIN
                                         ),
-                                        ft.Divider(ft.colors.TRANSPARENT)
-
                                     ]
                                 )
                             ),
                         ]
-
                     ),
-
-                    ft.Stack(
-                        controls=[
-                            ft.Container(
-                                height=600,
-                                width=1300,
-                                image_src='images/fotoCapa.png',
-                                image_fit=ft.ImageFit.COVER,
-                                # offset=ft.Offset(y=0, x=0),
-                                # animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE_IN),
-                                content=ft.Column(
-                                    spacing=140,
-                                    controls=[
-                                        foto1,
-                                        foto2,
-                                        foto3,
-
-                                    ]
+                    ft.Container(
+                        height=600,
+                        width=600,
+                        padding=10,
+                        bgcolor='black',
+                        image_src='images/fotoCapa.png',
+                        image_fit=ft.ImageFit.CONTAIN,
+                        # offset=ft.Offset(y=0, x=0),
+                        # animate_offset=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE_IN),
+                        content=ft.Column(
+                            spacing=140,
+                            controls=[
+                                foto1,
+                                foto2,
+                                ft.Container(
+                                    height=200,
+                                    width=200,
+                                    content=foto3
                                 )
-                            ),
 
-                        ]
+                            ]
+                        )
                     ),
 
                     ft.Container(
                         height=550,
-                        width=1300,
+                        width=500,
                         padding=ft.padding.only(left=10, right=10, top=40, bottom=20),
                         bgcolor=ft.colors.GREY_800,
                         image_src='images/fotofinal.jpg',
@@ -681,7 +678,7 @@ def main(page: ft.Page):
                                                         ),
                                                         ft.Container(
                                                             height=400,
-                                                            width=1300,
+                                                            width=500,
                                                             image_src='images/IMG-20220402-WA0035.jpg',
                                                             image_fit=ft.ImageFit.CONTAIN,
                                                         ),
@@ -1142,7 +1139,7 @@ Assim como vários outros golpes, pode ser executado tanto com o cotovelo diante
                                                     controls=[
                                                         ft.Container(
                                                             height=200,
-                                                            width=1300,
+                                                            width=500,
                                                             image_src='images/Cotovelo Ascendente .gif',
                                                             image_fit=ft.ImageFit.SCALE_DOWN,
                                                         ),
@@ -1193,7 +1190,7 @@ Também pode ser executado com ambos os cotovelos.'''
                                                     controls=[
                                                         ft.Container(
                                                             height=200,
-                                                            width=1300,
+                                                            width=500,
                                                             image_src='images/CotoveloDescendente.gif',
                                                             image_fit=ft.ImageFit.SCALE_DOWN,
                                                         ),
@@ -1468,7 +1465,7 @@ Os chutes também possuem algumas restrições. Não é permitido realizar chute
                         ft.Container(
                             padding=20,
                             height=1600,
-                            width=1300,
+                            width=500,
                             image_src='images/Mármore final.jpg',
                             image_fit=ft.ImageFit.COVER,
                             content=ft.Container(

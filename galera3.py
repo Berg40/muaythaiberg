@@ -115,7 +115,7 @@ def galera3_view(page: ft.Page):
         )
     )
     layout = ft.Container(
-        width=900,
+        width=500,
         margin=ft.margin.symmetric(vertical=60, horizontal=20),
         shadow=ft.BoxShadow(blur_radius=40, color=ft.colors.WHITE),
         content=ft.ResponsiveRow(
