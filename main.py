@@ -14,6 +14,8 @@ def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.window_max_height = 900
     page.window_max_width = 400
+    page.window_resizable = False
+    #page.window.maximized = True
     page.theme_mode = ft.ThemeMode.LIGHT  # Inicialmente tema claro
     page.update()
 
@@ -147,7 +149,7 @@ def main(page: ft.Page):
             style=ft.TextStyle(
                 foreground=ft.Paint(
                     gradient=ft.PaintLinearGradient(
-                        begin=ft.Offset(x=0, y=0),
+                        begin=ft.Offset(x=200, y=0),
                         end=ft.Offset(x=700, y=0),
                         colors=[
                             ft.colors.YELLOW_700,
