@@ -12,6 +12,8 @@ def main(page: ft.Page):
     page.bgcolor = ft.colors.BLACK
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.window_max_height = 900
+    page.window_max_width = 400
     page.theme_mode = ft.ThemeMode.LIGHT  # Inicialmente tema claro
     page.update()
 
@@ -1946,6 +1948,5 @@ MUAY THAI?'''
     page.go(page.route)
 
 
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # para colocar no heroku
-    ft.app(target=main, assets_dir='assets', port=port, view=ft.WEB_BROWSER)  # para colocar no heroku
+if __name__ == '__main__': 
+    ft.app(target=main, assets_dir='assets')  # para colocar no heroku
