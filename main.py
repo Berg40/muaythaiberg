@@ -12,9 +12,8 @@ def main(page: ft.Page):
     page.bgcolor = ft.colors.BLACK
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.window_max_height = 900
-    page.window_max_width = 400
-    page.window_resizable = False
+
+
     #page.window.maximized = True
     page.theme_mode = ft.ThemeMode.LIGHT  # Inicialmente tema claro
     page.update()
