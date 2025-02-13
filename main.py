@@ -406,7 +406,7 @@ def main(page: ft.Page):
                         width=500,
                         padding=ft.padding.only(left=10, right=10, top=40, bottom=20),
                         bgcolor=ft.colors.GREY_800,
-                        image_src='images/fotofinal.jpg',
+                        image_src='images/logo.pgn',
                         image_fit=ft.ImageFit.COVER,
                         image_opacity=0.3,
                         content=ft.Column(
